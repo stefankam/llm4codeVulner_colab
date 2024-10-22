@@ -6,7 +6,12 @@ from pytorch_lightning.loggers import CSVLogger
 from torch.utils.data import DataLoader
 from transformers import T5ForConditionalGeneration, AutoModelForCausalLM, AutoModel
 from pytorch_lightning.strategies import deepspeed
-
+import sys
+import os
+# Change the current working directory
+os.chdir('/content/llm4codeVulner_colab')
+# Add the path to sys.path if needed
+sys.path.append(os.getcwd())
 from evaluator.metrics_getter import get_code_bleu_from_list, get_code_bert_from_list
 
 max_input_length = 256

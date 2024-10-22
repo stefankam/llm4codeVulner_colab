@@ -48,7 +48,7 @@ def main():
     lang = args.lang
     training_epochs = args.training_epochs
     data_usage_ratio = args.data_usage
-    accelerator = args.device
+    accelerator = 'cpu'
     warmup_steps = 10
     lr = 5e-5
     enable_parallelism_tokenizer = False

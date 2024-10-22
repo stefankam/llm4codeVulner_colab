@@ -1,6 +1,11 @@
 import shutil
 import subprocess
-
+import sys
+import os
+# Change the current working directory
+os.chdir('/content/llm4codeVulner_colab')
+# Add the path to sys.path if needed
+sys.path.append(os.getcwd())
 from data.process.utils import read_patches, download_vulnerable_files, get_github_client
 
 
