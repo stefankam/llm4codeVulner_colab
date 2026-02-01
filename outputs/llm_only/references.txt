@@ -1,0 +1,1186 @@
+sql = """
+              SELECT title, description, start_time, time_zone, (
+                SELECT GROUP_CONCAT(DISTINCT username)
+                FROM user_event
+                WHERE event_id = %s
+                AND user_event.attending = 1)
+                AS accepted, (
+                SELECT GROUP_CONCAT(DISTINCT username)
+                FROM user_event
+                WHERE event_id = %s
+                AND user_event.attending = 0)
+                AS declined
+              FROM events
+              WHERE event_id = %s;
+              """
+        self.cur.execute(sql, (event_id, event_id, event_id))
+sql = """
+              DELETE FROM events
+              WHERE event_id = %s
+              """
+        affected_count = self.cur.execute(sql, (event_id,))
+c.execute("SELECT * FROM users WHERE email=?", (email,))
+c.execute("SELECT * FROM users WHERE email=?", (email,))
+c.execute("INSERT INTO users VALUES(?, ?, ?, ?)", (str(count), name, email, hashed))
+# This is unsafe
+		query = "SELECT name,email,record_time FROM users WHERE users.name = '%s' AND users.pattern = '%s';" % (username,pattern)
+#linesplit = line.split()
+        try:
+            #print(line)
+            linesplit = shlex.split(line)
+            #print(linesplit)
+        except:
+            print("register: incorrect arguments; input only your username")
+            return
+query='INSERT INTO crimes (description) VALUES (%s);'
+cursor.execute(query, data)
+def get_full_by_id(db, submission_id):
+    return get_full_sql(db, "submission.id = ?", (submission_id,))[0]
+def get_full_sql(db, filter_sql, filter_params=[]):
+(" AND %s" % filter if filter else ""), filter_params)
+status = {...}
+'WHERE name=%s;',
+                [path])
+if db_get_file_details(file):
+db_get_file_details(file)['size']):
+db_get_file_details(file)['age']) > 60:
+get_md5_from_file(file)):
+from dbhelper import DBHelper
+# query = "INSERT INTO crimes (description) VALUES ('{}');" \
+            query = "INSERT INTO crimes (description) VALUES (%s);"
+cursor.execute(query, data)
+cursor.execute("select count(*) from player where playername like '%' || :name_filter || '%'", {"name_filter": name_filter})
+# stmt = "select count(*) from player where playername like '%{}%'".format(name_filter)
+if (bot.db.get_nick_id(Identifier(trigger.group(1))) ==
+            bot.db.get_nick_id(Identifier(trigger.nick))):
+if (bot.db.get_nick_id(Identifier(trigger.group(1))) ==
+            bot.db.get_nick_id(Identifier(trigger.nick))):
+# @example('.karmatop 3')
+try:
+except ValueError:
+query = "SELECT slug, value FROM nick_values NATURAL JOIN nicknames \
+        WHERE key = 'karma' ORDER BY value DESC LIMIT %d"
+    karmalist = bot.db.execute(query % top_limit).fetchall()
+WHERE key = 'karma' ORDER BY value DESC LIMIT ?"
+    karmalist = bot.db.execute(query, str(top_limit)).fetchall()
+top_str = request.args.get('top')
+    if not top_str.isdigit() or not int(top_str) > 0:
+        message = 'top query param must be an int greater than 0'
+        return bad_request(message)
+    top = int(request.args.get('top'))
+attrs.append(request.GET.get(f))
+                where_clause += " {operator} {fieldname}=%s".format(operator=where_or_and(where_clause),
+                                                                    fieldname=f.upper())
+cursor.execute(sql_request, attrs)
+WHERE player_id = %s""", player_id)
+SQL_TABLE_EXISTS = "SELECT EXISTS(SELECT relname FROM pg_class WHERE relname=%s)"
+self.cursor.execute(self.SQL_CREATE_JSON_TABLE, (table_name,))
+self.cursor.execute(self.SQL_DROP_JSON_TABLE, (table_name,))
+self.cursor.execute(self.SQL_TABLE_EXISTS, (table_name,))
+SQL_INSERT_JSON = "INSERT INTO %s(data) VALUES(%s) RETURNING id"
+self.cursor.execute(self.SQL_INSERT_JSON, (AsIs(self.name), json.dumps(data)))
+self.cursor.execute(self.SQL_GET_JSON, (AsIs(self.name), id))
+self.cursor.execute(self.SQL_QUERY_JSON, (AsIs(columns), AsIs(self.name), AsIs(query)))
+def execute(self, query, params = []):
+self.cursor.execute(query, params)
+print("Credentials file not found")
+print(response.status, response.reason, response_data)
+print("Unexpected error", e)
+self.insert_template = "INSERT INTO WEATHER_MEASUREMENT (AMBIENT_TEMPERATURE, GROUND_TEMPERATURE, AIR_QUALITY, AIR_PRESSURE, HUMIDITY, WIND_DIRECTION, WIND_SPEED, WIND_GUST_SPEED, RAINFALL, CREATED) VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s);"
+        self.update_template =  "UPDATE WEATHER_MEASUREMENT SET REMOTE_ID=%s WHERE ID=%s;"
+params = ( ambient_temperature,
+            ground_temperature,
+            air_quality,
+            air_pressure,
+            humidity,
+            wind_direction,
+            wind_speed,
+            wind_gust_speed,
+            rainfall,
+            created )
+        print(self.insert_template % params)
+        self.db.execute(self.insert_template, params)
+print("%d rows to send..." % rows_count)
+params = (oracle_id, local_id)
+                        self.db.execute(self.update_template, params)
+                        print("ID: %d updated with REMOTE_ID = %d" % params)
+print("Bad response from Oracle")
+print("Nothing to upload")
+def execute(self, query, params = []):
+self.cursor.execute(query, params)
+print("Credentials file not found")
+print(response.status, response.reason, response_data)
+print("Unexpected error", e)
+self.insert_template = "INSERT INTO WEATHER_MEASUREMENT (AMBIENT_TEMPERATURE, GROUND_TEMPERATURE, AIR_QUALITY, AIR_PRESSURE, HUMIDITY, WIND_DIRECTION, WIND_SPEED, WIND_GUST_SPEED, RAINFALL, CREATED) VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s);"
+        self.update_template =  "UPDATE WEATHER_MEASUREMENT SET REMOTE_ID=%s WHERE ID=%s;"
+params = ( ambient_temperature,
+            ground_temperature,
+            air_quality,
+            air_pressure,
+            humidity,
+            wind_direction,
+            wind_speed,
+            wind_gust_speed,
+            rainfall,
+            created )
+        print(self.insert_template % params)
+        self.db.execute(self.insert_template, params)
+print("%d rows to send..." % rows_count)
+params = (oracle_id, local_id)
+                        self.db.execute(self.update_template, params)
+                        print("ID: %d updated with REMOTE_ID = %d" % params)
+print("Bad response from Oracle")
+print("Nothing to upload")
+def execute(self, query, params = []):
+self.cursor.execute(query, params)
+print("Credentials file not found")
+print(response.status, response.reason, response_data)
+print("Unexpected error", e)
+self.insert_template = "INSERT INTO WEATHER_MEASUREMENT (AMBIENT_TEMPERATURE, GROUND_TEMPERATURE, AIR_QUALITY, AIR_PRESSURE, HUMIDITY, WIND_DIRECTION, WIND_SPEED, WIND_GUST_SPEED, RAINFALL, CREATED) VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s);"
+        self.update_template =  "UPDATE WEATHER_MEASUREMENT SET REMOTE_ID=%s WHERE ID=%s;"
+params = ( ambient_temperature,
+            ground_temperature,
+            air_quality,
+            air_pressure,
+            humidity,
+            wind_direction,
+            wind_speed,
+            wind_gust_speed,
+            rainfall,
+            created )
+        print(self.insert_template % params)
+        self.db.execute(self.insert_template, params)
+print("%d rows to send..." % rows_count)
+params = (oracle_id, local_id)
+                        self.db.execute(self.update_template, params)
+                        print("ID: %d updated with REMOTE_ID = %d" % params)
+print("Bad response from Oracle")
+print("Nothing to upload")
++def subjects_counts():
+    """
+    Called by browse_subjects.
+
+    Returns: 
+        list: list sorted alphabetically,
+              containing tuples (subject, count),
+              where count is the number of articles in subject
+    """
+cur.execute("SELECT subject, COUNT(*) FROM articles GROUP BY subject;")
+query = "SELECT * FROM articles WHERE subject=%s ORDER BY last_submitted DESC"
+        cur.execute(query, (subject,))
+query = "SELECT * FROM articles WHERE index=%s"
+        cur.execute(query, (index, ))
+return render_template("browse.html", subjects=subjects_counts())
+# load model:
+        model = Doc2Vec.load(args.model_path)
+        application.run(host='0.0.0.0', debug=args.debug)
+\ No newline at end of fil
+def perform(self, query, *args):
+cursor = conn.cursor(cursor_factory = psycopg2.extras.RealDictCursor)
+            print(query)
+            for item in args:
+                cursor.execute(query, (AsIs(item),))
+result = cursor.fetchall()
+def perform(self, query, *args):
+c.execute(query, (args, ))
+from ooiservices.model.adaptor.postgres import PostgresAdaptor as PSQL
+from ooiservices.model.adaptor.sqlite import SQLiteAdaptor as SQL
+placeholders = ':'+', :'.join(obj.keys())
+        query = 'INSERT INTO ' + self.tbl + ' ( ' + columns + ' ) VALUES ( ' + self.holder + ' );'
+        feedback = self.sql.perform(query, placeholders)
+        return feedback
+if obj_id:
+            query = 'SELECT * FROM ' + self.tbl + ' WHERE %s = ' + self.holder + ';' % (self.where_param)
+            answer = self.sql.perform(query, obj_id)
+query = 'SELECT * FROM ' + self.tbl + ';'
+            answer = self.sql.perform(query, None)
+update_set = ', '.join('%s=%r' % (key, val) for (key, val) in obj.items())
+        query = 'UPDATE ' + self.tbl + ' SET ' + update_set + ' WHERE %s =' + self.holder + ';' % (self.where_param)
+        feedback = self.sql.perform(query, obj_id)
+def delete(self, obj_id):
+        query = 'DELETE FROM ' + self.tbl + ' WHERE %s =' +self.holder + ';' % (self.where_param)
+        feedback = self.sql.perform(query, obj_id)
+        return feedback
+\ No newline at end of file
+def perform(self, query, *args):
+cursor = conn.cursor(cursor_factory = psycopg2.extras.RealDictCursor)
+            print(query)
+            for item in args:
+                cursor.execute(query, (AsIs(item),))
+result = cursor.fetchall()
+def perform(self, query, *args):
+c.execute(query, (args, ))
+from ooiservices.model.adaptor.postgres import PostgresAdaptor as PSQL
+from ooiservices.model.adaptor.sqlite import SQLiteAdaptor as SQL
+placeholders = ':'+', :'.join(obj.keys())
+        query = 'INSERT INTO ' + self.tbl + ' ( ' + columns + ' ) VALUES ( ' + self.holder + ' );'
+        feedback = self.sql.perform(query, placeholders)
+        return feedback
+if obj_id:
+            query = 'SELECT * FROM ' + self.tbl + ' WHERE %s = ' + self.holder + ';' % (self.where_param)
+            answer = self.sql.perform(query, obj_id)
+query = 'SELECT * FROM ' + self.tbl + ';'
+            answer = self.sql.perform(query, None)
+update_set = ', '.join('%s=%r' % (key, val) for (key, val) in obj.items())
+        query = 'UPDATE ' + self.tbl + ' SET ' + update_set + ' WHERE %s =' + self.holder + ';' % (self.where_param)
+        feedback = self.sql.perform(query, obj_id)
+def delete(self, obj_id):
+        query = 'DELETE FROM ' + self.tbl + ' WHERE %s =' +self.holder + ';' % (self.where_param)
+        feedback = self.sql.perform(query, obj_id)
+        return feedback
+\ No newline at end of file
+'''
+        cur.execute(q, (winner, loser, loser, winner))
+"AND M2.acadYearAndSem LIKE %s" + \
+processed_ay = selected_ay + "%"
+
+    DB_CURSOR.execute(sql_command, (processed_ay,))
+"WHERE sp1.moduleCode = %s AND " + \
+DB_CURSOR.execute(sql_command, (code,))
+TODO: Color in-progress and not-started questions differently
+TODO: Count number of unanswered questions and display
+
+statement = "SELECT * FROM questions WHERE id=%s"
+	curs.execute(statement, q_id)
+'''
+ 	conn = dbConnect(database)
+ 	curs = conn.cursor(MySQLdb.cursors.DictCursor)
+-	statement = "SELECT * FROM questions WHERE id=" + q_id # won't come from the user
+-	curs.execute(statement)
+	statement = "SELECT * FROM questions WHERE id=%s"
+	curs.execute(statement, q_id)
+ 	row = curs.fetchone() # only one result
+ 	timestamp = row['ts']
+ 	# timestamp automatically changes on update - so you have to replace it with the old value
+-
+ 	if update_type == 'publish':
+ 		statement = "update questions set status='completed', answer=%s, ts=%s where id=%s"
+ 		# change the status to complete
+#
+        # -- This code is unsafe and is vulnerable to sql injection. incoming
+        #    parameters need to be escaped in some manner to be safe to query on.
+        #
+        # sql = '''SELECT
+        #             mode() WITHIN GROUP (ORDER BY list_price DESC) AS model_value,
+        #             count(*)
+        #          FROM
+        #             "itemPrices_itemsale"
+        #       '''
+        # if item and city:
+        #     sql = "{} WHERE city = '{}' and title = '{}'".format(sql, city, item)
+        # elif item:
+        #     sql = "{} WHERE title = '{}'".format(sql, item)
+        # elif city:
+        #     sql = "{} WHERE city = '{}'".format(sql, city)
+# with connection.cursor() as c:
+        #     c.execute(sql)
+        #     price_mode, count = c.fetchone()
+city_cur.execute("SELECT cities.name, id AS city_id, region_id, country_id FROM cities  \
+                      WHERE cities.name REGEXP %s LIMIT 100", (request.args["input_text"],))
+region_cur.execute("SELECT regions.name, 'null' AS city_id, id AS region_id, country_id FROM regions \
+                        WHERE regions.name REGEXP %s LIMIT 100", (request.args["input_text"],))
+country_cur.execute("SELECT countries.name, 'null' AS city_id, 'null' AS region_id, id AS country_id FROM countries \
+                        WHERE countries.name REGEXP %s LIMIT 100", (request.args["input_text"],))
+' or '.join(self.or_conditions)
++		sub_query_regex = re.compile("^.*[,();].*")
+if sub_query_regex.match(field):
+				if any(keyword in field.lower().split() for keyword in blacklisted_keywords):
+					_raise_exception()
+
+				if any("({0}".format(keyword) in field.lower() for keyword in blacklisted_keywords):
+if any("{0}(".format(keyword) in field.lower() for keyword in blacklisted_functions):
+return eve
+def _raise_exception(searchfield):
+		frappe.throw(_('Invalid Search Field {0}').format(searchfield), frappe.DataError)
+
+	if len(searchfield) == 1:
+		# do not allow special characters to pass as searchfields
+		regex = re.compile('^.*[=;*,\'"$\-+%#@()_].*')
+		if regex.match(searchfield):
+			_raise_exception(searchfield)
+_raise_exception(searchfield)
+_raise_exception(searchfield)
+_raise_exception(searchfield)
+_raise_exception(searchfield)
+
+		else:
+			regex = re.compile('^.*[=;*,\'"$\-+%#@()].*')
+			if any(regex.match(f) for f in searchfield.split()):
+				_raise_exception(searchfield)
+blacklisted_keywords = ['select', 'create', 'insert', 'delete', 'drop', 'update', 'case',
+			'from', 'group', 'order', 'by']
+frappe.throw(_('Use of sub-query or function is restricted'), frappe.DataError)
+
+		def _is_query(field):
+			if re.compile("^(select|delete|update|drop|create)\s").match(field):
+				_raise_exception()
+
+			elif re.compile("\s*[a-zA-z]*\s*( from | group by | order by | where | join )").match(field):
+				_raise_exception()
+blacklisted_keywords = ['select', 'create', 'insert', 'delete', 'drop', 'update', 'case']
+elif re.compile("\s*[0-9a-zA-z]*\s*( from | group by | order by | where | join )").match(field):
+if re.compile("[0-9a-zA-Z]+\s*'").match(field):
+if re.compile('[0-9a-zA-Z]+\s*,').match(field):
+' or '.join(self.or_conditions)
++		sub_query_regex = re.compile("^.*[,();].*")
+if sub_query_regex.match(field):
+				if any(keyword in field.lower().split() for keyword in blacklisted_keywords):
+					_raise_exception()
+
+				if any("({0}".format(keyword) in field.lower() for keyword in blacklisted_keywords):
+if any("{0}(".format(keyword) in field.lower() for keyword in blacklisted_functions):
+return eve
+def _raise_exception(searchfield):
+		frappe.throw(_('Invalid Search Field {0}').format(searchfield), frappe.DataError)
+
+	if len(searchfield) == 1:
+		# do not allow special characters to pass as searchfields
+		regex = re.compile('^.*[=;*,\'"$\-+%#@()_].*')
+		if regex.match(searchfield):
+			_raise_exception(searchfield)
+_raise_exception(searchfield)
+_raise_exception(searchfield)
+_raise_exception(searchfield)
+_raise_exception(searchfield)
+
+		else:
+			regex = re.compile('^.*[=;*,\'"$\-+%#@()].*')
+			if any(regex.match(f) for f in searchfield.split()):
+				_raise_exception(searchfield)
+blacklisted_keywords = ['select', 'create', 'insert', 'delete', 'drop', 'update', 'case',
+			'from', 'group', 'order', 'by']
+frappe.throw(_('Use of sub-query or function is restricted'), frappe.DataError)
+
+		def _is_query(field):
+			if re.compile("^(select|delete|update|drop|create)\s").match(field):
+				_raise_exception()
+
+			elif re.compile("\s*[a-zA-z]*\s*( from | group by | order by | where | join )").match(field):
+				_raise_exception()
+blacklisted_keywords = ['select', 'create', 'insert', 'delete', 'drop', 'update', 'case']
+elif re.compile("\s*[0-9a-zA-z]*\s*( from | group by | order by | where | join )").match(field):
+if re.compile("[0-9a-zA-Z]+\s*'").match(field):
+if re.compile('[0-9a-zA-Z]+\s*,').match(field):
+' or '.join(self.or_conditions)
++		sub_query_regex = re.compile("^.*[,();].*")
+if sub_query_regex.match(field):
+				if any(keyword in field.lower().split() for keyword in blacklisted_keywords):
+					_raise_exception()
+
+				if any("({0}".format(keyword) in field.lower() for keyword in blacklisted_keywords):
+if any("{0}(".format(keyword) in field.lower() for keyword in blacklisted_functions):
+return eve
+def _raise_exception(searchfield):
+		frappe.throw(_('Invalid Search Field {0}').format(searchfield), frappe.DataError)
+
+	if len(searchfield) == 1:
+		# do not allow special characters to pass as searchfields
+		regex = re.compile('^.*[=;*,\'"$\-+%#@()_].*')
+		if regex.match(searchfield):
+			_raise_exception(searchfield)
+_raise_exception(searchfield)
+_raise_exception(searchfield)
+_raise_exception(searchfield)
+_raise_exception(searchfield)
+
+		else:
+			regex = re.compile('^.*[=;*,\'"$\-+%#@()].*')
+			if any(regex.match(f) for f in searchfield.split()):
+				_raise_exception(searchfield)
+' or '.join(self.or_conditions)
++		sub_query_regex = re.compile("^.*[,();].*")
+if sub_query_regex.match(field):
+				if any(keyword in field.lower().split() for keyword in blacklisted_keywords):
+					_raise_exception()
+
+				if any("({0}".format(keyword) in field.lower() for keyword in blacklisted_keywords):
+if any("{0}(".format(keyword) in field.lower() for keyword in blacklisted_functions):
+return eve
+def _raise_exception(searchfield):
+		frappe.throw(_('Invalid Search Field {0}').format(searchfield), frappe.DataError)
+
+	if len(searchfield) == 1:
+		# do not allow special characters to pass as searchfields
+		regex = re.compile('^.*[=;*,\'"$\-+%#@()_].*')
+		if regex.match(searchfield):
+			_raise_exception(searchfield)
+_raise_exception(searchfield)
+_raise_exception(searchfield)
+_raise_exception(searchfield)
+_raise_exception(searchfield)
+
+		else:
+			regex = re.compile('^.*[=;*,\'"$\-+%#@()].*')
+			if any(regex.match(f) for f in searchfield.split()):
+				_raise_exception(searchfield)
+blacklisted_keywords = ['select', 'create', 'insert', 'delete', 'drop', 'update', 'case',
+			'from', 'group', 'order', 'by']
+frappe.throw(_('Use of sub-query or function is restricted'), frappe.DataError)
+
+		def _is_query(field):
+			if re.compile("^(select|delete|update|drop|create)\s").match(field):
+				_raise_exception()
+
+			elif re.compile("\s*[a-zA-z]*\s*( from | group by | order by | where | join )").match(field):
+				_raise_exception()
+blacklisted_keywords = ['select', 'create', 'insert', 'delete', 'drop', 'update', 'case']
+def _raise_exception(searchfield):
+		frappe.throw(_('Invalid Search Field {0}').format(searchfield), frappe.DataError)
+
+	if len(searchfield) == 1:
+		# do not allow special characters to pass as searchfields
+		regex = re.compile('^.*[=;*,\'"$\-+%#@()_].*')
+		if regex.match(searchfield):
+			_raise_exception(searchfield)
+_raise_exception(searchfield)
+_raise_exception(searchfield)
+_raise_exception(searchfield)
+_raise_exception(searchfield)
+
+		else:
+			regex = re.compile('^.*[=;*,\'"$\-+%#@()].*')
+			if any(regex.match(f) for f in searchfield.split()):
+				_raise_exception(searchfield)
+blacklisted_keywords = ['select', 'create', 'insert', 'delete', 'drop', 'update', 'case',
+			'from', 'group', 'order', 'by']
+frappe.throw(_('Use of sub-query or function is restricted'), frappe.DataError)
+
+		def _is_query(field):
+			if re.compile("^(select|delete|update|drop|create)\s").match(field):
+				_raise_exception()
+
+			elif re.compile("\s*[a-zA-z]*\s*( from | group by | order by | where | join )").match(field):
+				_raise_exception()
+blacklisted_keywords = ['select', 'create', 'insert', 'delete', 'drop', 'update', 'case']
+elif re.compile("\s*[0-9a-zA-z]*\s*( from | group by | order by | where | join )").match(field):
+if re.compile("[0-9a-zA-Z]+\s*'").match(field):
+if re.compile('[0-9a-zA-Z]+\s*,').match(field):
+blacklisted_keywords = ['select', 'create', 'insert', 'delete', 'drop', 'update', 'case',
+			'from', 'group', 'order', 'by']
+frappe.throw(_('Use of sub-query or function is restricted'), frappe.DataError)
+
+		def _is_query(field):
+			if re.compile("^(select|delete|update|drop|create)\s").match(field):
+				_raise_exception()
+
+			elif re.compile("\s*[a-zA-z]*\s*( from | group by | order by | where | join )").match(field):
+				_raise_exception()
+blacklisted_keywords = ['select', 'create', 'insert', 'delete', 'drop', 'update', 'case']
+elif re.compile("\s*[0-9a-zA-z]*\s*( from | group by | order by | where | join )").match(field):
+if re.compile("[0-9a-zA-Z]+\s*'").match(field):
+if re.compile('[0-9a-zA-Z]+\s*,').match(field):
+cmd = "update endpoint set url = %s where interface ='internal' and service_id = (select id from service where service.type = 'identity')"
+    user_engine.execute(cmd, (endpoint_url,))
+cmd = "update endpoint set url = %s where interface ='admin' and service_id = (select id from service where service.type = 'identity')"
+    user_engine.execute(cmd, (endpoint_url,))
+cmd = "update endpoint set url = %s where interface ='public' and service_id = (select id from service where service.type = 'identity')"
+    user_engine.execute(cmd, (endpoint_url,))
+import subprocess  #nosec
+subprocess.call(['keystone-manage', cmd,  #nosec
+cmd = "update endpoint set url = %s where interface ='internal' and service_id = (select id from service where service.type = 'identity')"
+    user_engine.execute(cmd, (endpoint_url,))
+cmd = "update endpoint set url = %s where interface ='admin' and service_id = (select id from service where service.type = 'identity')"
+    user_engine.execute(cmd, (endpoint_url,))
+cmd = "update endpoint set url = %s where interface ='public' and service_id = (select id from service where service.type = 'identity')"
+    user_engine.execute(cmd, (endpoint_url,))
+import subprocess  #nosec
+subprocess.call(['keystone-manage', cmd,  #nosec
+return '(%s -> %%s)' % lhs, [self.key_name] + params
+lookup = int(self.key_name)
+lookup = self.key_name
+        return '(%s %s %%s)' % (lhs, self.operator), [lookup] + params
+return '%s[%%s]' % lhs, params + [self.index]
+return '%s[%%s:%%s]' % lhs, params + [self.start, self.end]
+cur.execute("""
+cur.execute("""
+return render_template('search.html', title='Search for films', form=form)
+     search_terms = form.data['term'].split(' ')
+     search_string = ' & '.join(search_terms)
+-    cur.execute(f"SELECT * FROM film where fulltext
+VALUES (%s, %s, %s, %s, %s, %s, %s, %s)
+        """, [(v, ) for k, v in movie.items()]
+cur.execute(
+         """
+         INSERT INTO film (title, description, release_year, language_id, rental_duration, rental_rate, length, replacement_cost)
+-        VALUES ('{}', '{}', {}, {}, {}, {}, {}, {})
+-        """.format(*[v for k, v in movie.items()])
+        VALUES (%s, %s, %s, %s, %s, %s, %s, %s)
+        """, [(v, ) for k, v in movie.items()]
+     )
+     try:
+-        cur.execute(f"SELECT * FROM film where fulltext
+cur.execute("INSERT INTO language (name) VALUES (%s)", (lang, ))
+cur.execute("SELECT language_id FROM language where name=%s", (lang, ))
+# update_sql = "UPDATE contacts SET email = '{}' WHERE phone == {}".format(new_email, new_phone)
+
+# to attempt to stop sql injection attacks
+update_sql = "UPDATE contacts SET email = ? WHERE phone == ?"
++# will run multiple statements at once - separated by semicolons
+# extra parameters will replace the question marks in the sql statement - will parse to stop injection attacks
+update_cursor.execute(update_sql, (new_email, new_phone))
+
+self,
+        user_id,
+        username,
+        hashed_password,
+        roll_id=1,
+        *args,
+        **kwargs
+if connection.execute(s, username=username).fetchone()
+            is None
+try:
+        rc = JoggingResult.load(user_id, q_filter, page, limit)
+    except Exception as e:
+        raise InvalidUsage(e)
+
+    return response.json(rc, status=2
+resp = await test_cli.get(
+        "/results?page=0&count=2", headers=headers
+    )
+resp = await test_cli.get(
+        "/results?page=1&count=1", headers=headers
+    )
+resp = await test_cli.get(
+        "/results?page=-1&count=2", headers=headers
+    )
+resp = await test_cli.get(
+        "/results?page=1&count=0", headers=headers
+    )
+    assert resp.status == 400
+
+
+async def test_negative_sql_injection(test_cli):
+    global access_token
+    global refresh_token
+    headers = {"Authorization": f"Bearer {access_token}"}
+
+    resp = await test_cli.get(
+        "/results?page=0&count=2&filter=%3Bdrop table users%3B",
+        headers=headers,
+    )
+"/results?page=0&count=2&filter=date eq '2019-07-15'",
+        headers=headers,
+c1.execute("SELECT invCount FROM keyInventory WHERE keyNum = '%s';" % (u_keyNum,))
+c2.execute("INSERT INTO ordersFilled (submit_time, orderNum, keyNum, keysUsed, preCount, postCount) VALUES (?, ?, ?, ?, ?, ?);", (u_date, u_orderNum,  u_keyNum, u_keysUsed, u_preCount, u_postCount,))
+c3.execute("UPDATE keyInventory SET invCount = ? WHERE keyNum = ?;", (u_postCount, u_keyNum,))
+c1.execute("SELECT invCount FROM keyInventory WHERE keyNum = '%s';" % (u_keyNum,))
+c2.execute("INSERT INTO resupply (submit_time, keyNum, keysAdded, preCount, postCount) VALUES (?, ?, ?, ?, ?);", (u_date, u_keyNum, u_keysAdded, u_preCount, u_postCount,))
+c3.execute("UPDATE keyInventory SET invCount = ? WHERE keyNum = ?;", (u_postCount, u_keyNum,))
+safe_params = escape_params(query_params)
+        query_str = query_templ.format(**safe_params)
+return res
+
+if __name__ == "__main__":
+    import doctest
+    doctest.testmod()
+\ No newline at end of file
+open_query = "SELECT * FROM ?"
+pd.read_sql(open_query, conn, params=[table]).to_csv(f'{table}.csv', index=False)
+was_prev_closed = pd.read_sql("SELECT * FROM df_dilfo WHERE job_number=?", conn, params=[job_number]).iloc[0].closed
+was_prev_closed = pd.read_sql("SELECT * FROM df_dilfo WHERE job_number=?", conn, params=[job_number]).iloc[0].closed
+update_status_query = "UPDATE df_dilfo SET closed = 1 WHERE job_number = ?"
+conn.cursor().execute(update_status_query, [job_number])
+VALUES (?, 'alex.roy616@gmail.com', ?)
+VALUES (?, 'alex.roy616@gmail.com', ?)
+conn.cursor().execute(fake_dilfo_insert, [job_number, was_prev_closed])
+conn.cursor().execute(fake_match_insert, [job_number, 1])
+conn.cursor().execute(fake_match_insert, [job_number, 0])
+df_dilfo_pre = pd.read_sql("SELECT * FROM df_dilfo WHERE job_number=?", conn, params=[job_number])
+            df_matched_pre = pd.read_sql("SELECT * FROM df_matched WHERE job_number=?", conn, params=[job_number])
+df_dilfo_post = pd.read_sql("SELECT * FROM df_dilfo WHERE job_number=?", conn, params=[job_number])
+            df_matched_post = pd.read_sql("SELECT * FROM df_matched WHERE job_number=?", conn, params=[job_number])
+VALUES (?, ?)
+VALUES (?, ?)
+conn.cursor().execute(fake_dilfo_insert, [job_number, was_prev_closed])
+conn.cursor().execute(fake_match_insert, [job_number, 1])
+conn.cursor().execute(fake_match_insert, [job_number, 0])
+df_dilfo_pre = pd.read_sql("SELECT * FROM df_dilfo WHERE job_number=?", conn, params=[job_number])
+            df_matched_pre = pd.read_sql("SELECT * FROM df_matched WHERE job_number=?", conn, params=[job_number])
+df_dilfo_post = pd.read_sql("SELECT * FROM df_dilfo WHERE job_number=?", conn, params=[job_number])
+            df_matched_post = pd.read_sql("SELECT * FROM df_matched WHERE job_number=?", conn, params=[job_number])
+def _get_org_id_and_field_from_request(request):
+org_field = None
+    org_types_whitelist = ["practice", "pcn", "pct", "ccg", "stp", "regional_team"]
+org_type = request.query_params['org_type']
+        if org_type not in org_types_whitelist:
+            raise ValueError("Unknown org_type: {}".format(org_type))
+        org_field = org_type + '_id'
+        if org_field in ['pct_id', 'ccg_id']:
+            org_field = 'pr.ccg_id'
+org_field = 'pr.ccg_id'
+org_field = 'practice_id'
+return (org_id, org_field)
+org_id, org_field = _get_org_id_and_field_from_request(request)
+if org_field in ['stp_id', 'regional_team_id']:
+elif org_field == 'pr.ccg_id':
+focus_on_org = org_id and org_field
+org_condition = "{org_field} = %(org_id)s AND ".format(
+                org_field=org_field)
+            org_group = "{org_field}, ".format(
+                org_field=org_field)
+org_field=org_field,
+sql_update = f"""UPDATE `artikelen` SET `{column}` = '{location_nw}' WHERE `title` = "{title}" """
+return database_utilities.execute_query(f"""select * from admins where email = %s""", (email, ))
+return database_utilities.execute_query(f"""delete from admins where email = %s""", (email, )
+f"""select * from admins where email = %s""", (json_data['email'], ))
+f"""select * from spaces where space_id = %s""", (space_id, ))
+return database_utilities.execute_query(f"""select * from users where user_id = %s""", (user_id, ))
+return database_utilities.execute_query(f"""delete from users where user_id = %s""", (user_id, ))
+query += f"""where user_id = %s"""
+parameters = (json_data['user_id'], user_id)
+and c.email_id = %s""", sender)
+import get_leave_allocation_records, get_leave_balance_on, get_approved_leaves_for_period, get_total_allocated_leaves
+
+
+
+_("Employee") + ":Link/Employee:150",
+		_("Employee Name") + "::200",
+
+
+active_employees = frappe.get_all("Employee",
+		filters = { "status": "Active", "company": filters.company},
+
+opening = get_total_allocated_leaves(employee.name, leave_type, filters.to_date)
+
+group by si.name order by days_since_last_order """ #nosec
+and c.email_id = %s""", sender)
+import get_leave_allocation_records, get_leave_balance_on, get_approved_leaves_for_period, get_total_allocated_leaves
+
+
+
+_("Employee") + ":Link/Employee:150",
+		_("Employee Name") + "::200",
+
+
+active_employees = frappe.get_all("Employee",
+		filters = { "status": "Active", "company": filters.company},
+
+opening = get_total_allocated_leaves(employee.name, leave_type, filters.to_date)
+
+group by si.name order by days_since_last_order """ #nosec
+and c.email_id = %s""", sender)
+import get_leave_allocation_records, get_leave_balance_on, get_approved_leaves_for_period, get_total_allocated_leaves
+
+
+
+_("Employee") + ":Link/Employee:150",
+		_("Employee Name") + "::200",
+
+
+active_employees = frappe.get_all("Employee",
+		filters = { "status": "Active", "company": filters.company},
+
+opening = get_total_allocated_leaves(employee.name, leave_type, filters.to_date)
+
+group by si.name order by days_since_last_order """ #nosec
+import get_leave_allocation_records, get_leave_balance_on, get_approved_leaves_for_period, get_total_allocated_leaves
+
+
+
+_("Employee") + ":Link/Employee:150",
+		_("Employee Name") + "::200",
+
+
+active_employees = frappe.get_all("Employee",
+		filters = { "status": "Active", "company": filters.company},
+
+opening = get_total_allocated_leaves(employee.name, leave_type, filters.to_date)
+
+import get_leave_allocation_records, get_leave_balance_on, get_approved_leaves_for_period, get_total_allocated_leaves
+
+
+
+_("Employee") + ":Link/Employee:150",
+		_("Employee Name") + "::200",
+
+
+active_employees = frappe.get_all("Employee",
+		filters = { "status": "Active", "company": filters.company},
+
+opening = get_total_allocated_leaves(employee.name, leave_type, filters.to_date)
+
+group by si.name order by days_since_last_order """ #nosec
+group by si.name order by days_since_last_order """ #nosec
+sql = "INSERT INTO %s VALUES (%s, %s, %s, %s, %s, %s)"
+	cur.execute(sql, (listing_table_name, list_id, cook_id, food_name, price, loc, image))
+sql = "INSERT INTO %s VALUES (%s %s)"
+        cur.execute(sql, (listing_tags_table_name, listing_id, x))
+elif re.compile("\s*[0-9a-zA-z]*\s*( from | group by | order by | where | join )").match(field):
+if re.compile("[0-9a-zA-Z]+\s*'").match(field):
+if re.compile('[0-9a-zA-Z]+\s*,').match(field):
+if sortBy not in ['id', 'name', 'follower', 'registered']:
+        sortBy = 'id'
+    if sortOrder not in ['asc', 'desc']:
+        sortOrder = 'asc'
+        
+    query = 'SELECT * FROM user AS u LEFT OUTER JOIN (SELECT uid, count(uid) AS follower FROM follows GROUP BY uid) AS f ON u.id = f.uid ORDER BY {} {}'.format(sortBy, sortOrder)
+query
+query = "INSERT INTO crimes (description) VALUES (%s);"
+cursor.execute(query, data)
+def query(self, query, *parameters):
+        return self.c.execute(query, parameters)
+q = "SELECT rowid FROM tids WHERE tid = ?"
+        self.query(q, tid)
+q = "SELECT tid FROM tids WHERE rowid = ?"
+        self.query(q, tid_num)
+q = "SELECT tag FROM tid_tag WHERE tid = ?"
+        self.query(q, tid_num)
+q = "SELECT tag FROM tags WHERE rowid = ?"
+        self.query(q, tag_num)
+q = "SELECT rowid FROM tags WHERE tag = ?"
+        self.query(q, tag)
+rows = c.execute(sql, (jobName))
+c.execute(sql, (success, message, jobId))
+'ORDER BY num_mutual DESC'
+cursor.execute(sql, (user_id, user_id, user_id))
+sql = 'WITH tmp_suggest AS ' \
+sql = 'WITH tmp_suggest (followed_id) AS ' \
+'ORDER BY num_mutual DESC' % (user_id, user_id, user_id)
+cursor.execute(sql)
+fmt_str = ','.join(['%s'] * (1 + len(cands)))
+SELECT
+        user_id,
+        AVG(danceability),
+        AVG(energy),
+        AVG(loudness),
+        AVG(acousticness),
+        AVG(instrumentalness),
+        AVG(liveness),
+        AVG(valence)
+    FROM
+) all_songs_analysis
+''' % fmt_str
+cursor.execute(sql, ([user_id] + cands))
+SELECT followed_id, COUNT(*) AS num_mutual FROM
+) tbl_all_followed
+'''
+cursor.execute(sql, (user_id, user_id, user_id))
++    query = "SELECT NAME, HOSTNAME, DOMAIN, IP, PORT, PROTOCOL from DEVICE WHERE NAME = ? AND DOMAIN = ?"
+    cursor.execute(query, (name, domain))
+rules = cursor.fetchall()
+old_query = "DELETE FROM DEVICE WHERE NAME = ? AND DOMAIN = ?"
+    cursor.execute(old_query, (mac_addr, domain))
+query = "INSERT INTO DEVICE(NAME, HOSTNAME, DOMAIN, IP, PORT, PROTOCOL) VALUES(?, ?, ?, ?, ?, ?)"
+        cursor.execute(query, (mac_addr, hostName, domain, newIp, port, protocol))
+cursor = conn.cursor()
+# for domain in answer.fetchall():
+    for domain in answer:
+app.register_blueprint(profile_module, url_prefix='/profile')
+#  Messages Manager
+from MessagesManager.routes import messages_module
+app.register_blueprint(messages_module, url_prefix='/chat')
+app.run(host='0.0.0.0', port=5000, debug=True, threaded=True)
+\ No newline at end of fil
+from flask import Blueprint, request, redirect, jsonify, make_response
+from modules.ProfileManager.api.db_methods import db_isAuthDataValid, db_addProfile, db_getProfileInfo, db_getUserID
+from modules.ProfileManager.api.db_methods import db_setLastVisit
+from modules.AuthManager.SessionControl.app import initRedis_db
+from modules.json_validator import json_validate
+from hashlib import sha256
+from random import randint
+import uuid
+data = json_validate(request.data, register_schema)
+if ''.join(re.findall(r'\w+', data['login'])) != data['login']:
+            return jsonify({'status': 0, 'message': 'Логин должно состоять только из букв и цифр'})
+
+        if ''.join(re.findall(r'\w+', data['password'])) != data['password']:
+            return jsonify({'status': 0, 'message': 'Пароль должно состоять только из букв и цифр'})
+data = json_validate(request.data, login_schema)
+if ''.join(re.findall(r'\w+', data['login'])) != data['login']:
+            return jsonify({'status': 0, 'message': 'Логин должно состоять только из букв и цифр'})
+
+        if ''.join(re.findall(r'\w+', data['password'])) != data['password']:
+            return jsonify({'status': 0, 'message': 'Пароль должно состоять только из букв и цифр'})
+salt = ''.join([chr(randint(97, 122)) for _ in range(32)])
+        generate_uuid = str(uuid.uuid3(uuid.NAMESPACE_DNS, str(user_id + time.time()) + salt))
+#return jsonify(db_getProfileInfo(user_id))
+        r.set(generate_uuid, user_id)
+        response = make_response(redirect('/profile/{}'.format(user_id)))
+        response.set_cookie('SESSION', bytes(generate_uuid, 'utf-8'))
+        return response
++# # TODO: Сделать валидацию JSON'а от пользователя
+# @auth_module.route('/logout', methods=['GET', 'POST'])
+# def logout():
+#     r = initRedis_db()
+#     r.delete(db_getUserID(data))
+#     return jsonify({'status': 1})
+UUID = request.cookies.get('SESSION')
+        r.delete(db_getUserID(uuid))
+sql='''
+        INSERT INTO dialogs (name, created_at)
+        VALUES ('{name}', NOW()) RETURNING id;
+    '''.format(**nameDialog)
+    dialogID = sql_execute(sql, fetch_all=False)
+    return dialogID['id']
+
+sql='''
+        INSERT INTO dialogUser (dialog_id, user_id, permission)
+        VALUES ('{:d}', '{:d}', '{:d}'})
+    '''.format(dialogID, userID, permission)
+    sql_execute(sql, fetch_all=False)
+sql='''
+        INSERT INTO messages (dialog_id, content, created_at, user_id, section_id)
+        VALUES ('{:d}', '{}', NOW(), '{:d}', '{:d}')
+    '''.format(dialogID, userID, section_id, content)
+    sql_execute(sql, fetch_all=False)
+sql = '''
+        SELECT user_id, content, created_at, section_id
+        FROM messages
+        WHERE dialog_id='{:d}'
+    '''.format(dialogID)
+    return sql_execute(sql, fetch_all=True)
+\ No newline at end of
+from flask import Blueprint, request, jsonify
+@messages_module.route('/<int:dialogID>', methods=['GET, PUT, DELETE'])
+def send_message(dialogID):
+    if request.method == 'PUT':
+        data = json_validate(request.data, conference_create_schema)
+
+        try:
+            if data['status']:
+                return jsonify(data)
+        except Exception:
+            pass
+
+        if not data:
+            return jsonify({'status': 0, 'message': 'Требуется запрос с JSON\'ом'})
+
+        if not data['login'] or not data['content'] or not data['section_id']:
+            return jsonify({'status': 0, 'message': 'Не заполнены данные о имени конференции'})
+
+        user_id = db_getUserID(data)
+        return jsonify(db_addMessageForDialog(user_id, data['content'], dialogID, 0))
+
+
+@messages_module.route('/create', methods=['PUT'])
+def create_chat():
+data = json_validate(request.data, conference_create_schema)
+
+        try:
+            if data['status'] :
+                return jsonify(data)
+        except Exception:
+            pass
+if not data['name']:
+            return jsonify({'status': 0, 'message': 'Не заполнены данные о имени конференции'})
+        dialogID = db_addDialog(data)
+        return jsonify({'status': 1, 'dialogID': dialogID})
+
+
+@messages_module.route('/get/<int:dialog_id>')
+@messages_module.route('/all')
+def get_messages(dialog_id):
+user_id = sql_execute(sql, fetch_all=False)
+VALUES ('{:d}', '{login}', '{password}');
+sql += "WHERE user_id='{:d}';".format(data)
+sql += "WHERE login='{login}';".format(**data)
+WHERE id='{:d}';
+    '''.format(ID)
+SET is_blocked='{}'
+        WHERE id='{:d}';
+    '''.format(status, ID)
+WHERE login='{login}';
+    '''.format(**data)
+SET is_deleted='{}'
+        WHERE id='{:d}';
+    '''.format(status, ID)
+WHERE user_id='{:d}';
+WHERE id='{:d}';
+    '''.format(ID, ID)
+WHERE id='{:d}';
+    '''.format(ID)
+WHERE id='{:d}'
+            '''.format(ID)
+SET {}='{}' 
+                WHERE id='{:d}';
+            '''.format(key, data[key], ID)
+@profile_module.route('/<int:ID>', methods=['GET', 'PUT', 'DELETE'])
++            try:
+                data = json.loads(request.data)
+            except Exception:
+                pass
+
+@profile_module.route('/all')
+-from flask import redirect, make_response
+-from random import randint
+-
+-import redis
+-import uuid
+-import time
+-
+-
+-def initRedis_db():
+-    r = redis.Redis(host='127.0.0.1',port=6379,db=0)
+-    return r
+-
+-
+-def generateSession(user_id, r):
+-    salt = ''.join([chr(randint(97, 122)) for _ in range(32)])
+-    generate_uuid = str(uuid.uuid3(uuid.NAMESPACE_DNS, str(user_id + time.time()) + salt))
+-
+-    r.set(generate_uuid, user_id)
+-    response = make_response(redirect('set_cookie'))
+-    response.set_cookie('SESSION', bytes(generate_uuid, 'utf-8'))
+\ No newline at end
+return answer
+\ No newline at en
+resp = requests.get('http://127.0.0.1:5000/profile/all')
+resp = requests.get('http://127.0.0.1:5000/profile/all')
+resp = requests.get('http://127.0.0.1:5000/profile/all')
+resp = requests.get('http://127.0.0.1:5000/profile/all')
+# if ''.join(re.findall(r'\w+', data['login'])) != data['login']:
+        #     return jsonify({'status': 0, 'message': 'Логин должно состоять только из букв и цифр'})
+        #
+        # if ''.join(re.findall(r'\w+', data['password'])) != data['password']:
+        #     return jsonify({'status': 0, 'message': 'Пароль должно состоять только из букв и цифр'})
+return answer is not None
+from modules.MessagesManager.routes import messages_module
+sql += " WHERE user_id='{:d}';".format(data)
+sql += " WHERE login='{login}';".format(**data)
+'login': {'type': 'string', 'pattern': '\w+'},
+        'password': {'type': 'string', 'pattern': '\w+'},
+        'first_name': {'type': 'string', 'pattern': '\w+'},
+        'second_name': {'type': 'string', 'pattern': '\w+'}
+def sql_execute(query, fetch_all):
+print(err)
+        return {'status': 0, 'message': 'Error in database'}
+'login': {'type': 'string', 'pattern': '\w+'},
+        'password': {'type': 'string', 'pattern': '\w+'}
+'first_name': {'type': 'string', 'pattern': '\w+'},
+        'second_name': {'type': 'string', 'pattern': '\w+'}
+return abort(400)
+query = select([text('*')]).select_from(table(table_name)).limit(10000)
+order = self.env.cr.mogrify(
+                u"similarity(res_partner.name, %s) DESC", [fuzzy_search])
+dbConn = dbaseConn()
+validate_sql = "SELECT `uid`,`email`,`name` FROM `User` WHERE `uid`=%s"
+            cursor.execute(validate_sql, (uid,))
+update_stmt = "UPDATE `User` SET `name`=%s WHERE `uid`=%s"
+cursor.execute(update_stmt, (new_user_name, uid))
+sql = "UPDATE `User` SET `email`=%s WHERE `uid`=%s"
+cursor.execute(sql, (new_email, uid))
+from phobos.core.const import dev_family2str, PHO_DEV_DIR, PHO_DEV_TAPE
+sql = "INSERT INTO source (source) VALUES (?)"
+            sqlite.execute(sql, (current_source,))
+sourcebyinstitution = ?
+"""
+sqlite.execute(query, (sourcebyinstitution,))
+sql = "INSERT INTO institution (institution) VALUES (?)"
+            sqlite.execute(sql, (current_institution,))
+sql = 'INSERT INTO history (sourcebyinstitution, titles) VALUES (?, ?)'
+                sqlite.execute(sql, (sourcebyinstitution, number))
+sql = 'INSERT INTO history (sourcebyinstitution, titles) VALUES (?, ?)'
+                    sqlite.execute(sql, (sourcebyinstitution, number))
+sql = "INSERT INTO sourcebyinstitution (sourcebyinstitution) VALUES (?)"
+                sqlite.execute(sql, (sourcebyinstitution))
+sql, where_replacements = adapter.get_sql(select, table, filter, sort_by, offset, limit)
+cursor.execute(sql, where_replacements)
+where += '{} = {}'.format(field_name, '%s')
+            replacement.append(field_value)
+return where, tuple(replacemen
++        where_string, where_replacements = self.create_where(where)
+
+        sql += where_string
+
+return sql, where_replacements
+where_string, where_replacement = lucene_parser.parse(where)
+return where_string, where_replacement
+__version__ = '2019.8.1'
+return '(%s %s %%s)' % (lhs, self.nested_operator), [key_transforms] + params
+lookup = int(self.key_name)
+lookup = self.key_name
+        return '(%s %s %%s)' % (lhs, self.operator), [lookup] + params
+from .api import get_query_manager, get_filter_builder
+__all__ = ("get_query_manager", "get_filter_builder")
+from libsalesforce.client import Client
+from libsalesforce.model import NamedModel
+from libsalesforce.query import *
+client = Client()
+Opportunity = NamedModel('Opportunity')
+qm = get_query_manager(Opportunity, client)
+O = get_filter_builder()
+A = get_filter_builder()
+opportunities = qm.run(
+for a in o.Accounts(where=
+                (A.Id == "dfvfdbvdfv")
+            )
+for o in qm(where=
+        (O.Id == "hio")
+    )
+from typing import Iterator, TypeVar, Optional
+from .interface import ISpy, SupportsRendering
+def construct_select_statement(spy: ISpy, from_: str, *, where: Optional[SupportsRendering] = None) -> str:
+    clause = f"""SELECT {', '.join(construct_selects(spy))} FROM {from_}"""
+    if where:
+        clause += f' WHERE {where.render()}'
+    return clause
+inner_clause = f"""SELECT {', '.join(select_fields)} FROM {name}"""
+    if spy.where:
+        inner_clause += f" WHERE {spy.where.render()}"
+    return f"({inner_clause})"
+from typing import Any, Dict, Iterator, TypeVar, Optional
+def __call__(self: T, *, where: Optional[SupportsRendering] = None) -> T:
+class IQueryManager(SupportsFiltering, Protocol):
+from typing import Iterator, TypeVar, Optional
+from .interface import IRow, SupportsRendering
+query_string = construct_select_statement(spy, self.from_object, where=self.where)
+from typing import Dict, Iterator, TypeVar, Any, Union, Optional
+from typing_extensions import Literal
+from .interface import ISpy, SupportsRendering
+self.selected_fields = defaultdict(Spy)
+query = "INSERT INTO crimes (description) VALUES (%s);"
+cursor.execute(query, data)
+sql_query = 'select * from {}'.format(name)
+        data[name] = pd.read_sql(sql_query, DB_CONNECTION, parse_dates=parse_dates)
+return render_form(form, True, url_for("auth_login"), "Login", "Invalid username or password.", True, "")
+query += " WHERE (" + table + "." + name + " LIKE :x"
+query += " AND " + subtable + ".id = :y"
+res = db.engine.execute(stmt, x=field.data, y=form[subname].data)
+from fieldValues import year_range, faculty_status, fields_of_study, departments, careerareas,ipedssectornames
+year = filter(request.form.getlist('year'),year_range)
+        ipeds = filter(request.form.getlist('ipedssectornames'),ipedssectornames)
+Also set global variables to be accessed for the life time of the request
+from marshmallow import Schema,fields,ValidationError
+def ip_test(obj):
+    try:
+        ipaddress.ip_address(obj)
+    except ValueError:
+        raise ValidationError('Invalid IPv4 or IPv6 address.') from None
+def role_convert(self,obj):
+        roles = ["director","judge","mentor","sponsor","organizer","volunteer","hacker"]
+        return roles[int(math.log(int(obj.role),2))]
+
+    id = fields.Integer(dump_only=True)
+    email = fields.Email(dump_only=True,required=True)
+reset_password_token = fields.String(dump_only=True)
+created_at = fields.DateTime(dump_only=True,required=True)
+auth_token =fields.String(dump_only=True)
+role = fields.Method("role_convert")
+    first_name = fields.String(dump_only=True)
+    last_name = fields.String(dump_only=True)
+    checked_in = fields.Boolean(dump_only=Tru
+"""
+        GET the user details based on specific user_id
+        We are considering user and application separate entities. Previously, a user submitted the application details at the time of user account creation.
+        Now, the user creates an account and then logs in to submit the application.
+        Compared to old API we are not returning the application and rsvp details with the user details, rather we are returning the application_id and rsvp_id to help the front-end make GET request on application and rsvp endpoint in a separate requests.
+        """
+        #using get instead of query and it is marginally faster than filter
+        #check for multiple entries need to be done at POST and not during GET or PUT or DELETE
+        user_status,calling_user = has_admin_privileges()
+        if user_status == "no_auth_token":
+            return (bad_request,400,headers)
+
+        if user_status == "not_logged_in":
+            return (unauthorized,401,headers)
+
+        try:
+            user = g.session.query(g.Base.classes.users).get(user_id)
+        except Exception as err:
+            print(type(err))
+            print(err)
+            return (internal_server_error,500,headers)
+        # *Only allow directors, organizers and users calling
+        if user_status in ["director","organizer"] or calling_user == user:
+            if user:
+                ret = User_Schema().dump(user).data
+                # *<class_name>_collection is way by which SQLAlchemy stores relationships.
+                # *The collection object contains one related object in one-to-one relationship and more than one object in one-to-many relationships
+                # *set application_id if application object is found in the applications_collection i.e. if the user has submitted the application
+                # *This is different than old API in the sense that a user does not necessarily have a application at the time of account creation. User has the option of submitting the application later on.
+                ret["application_id"] = user.applications_collection[0].id if len(user.applications_collection)>0 else None
+                # *set rsvp_id if rsvp object is found in the rsvps_collection i.e. if the user has rsvped
+                ret["rsvp_id"] = user.rsvps_collection[0].id if len(user.rsvps_collection)>0 else None
+                return (ret,200,headers)
+            else:
+                return (not_found,404,headers)
+        else:
+            return(forbidden,403,headers)
+def post(self):
+def get(self):
+        """
+        GET all the users at a time.
+        Application_id and rsvp_id is not gonna be returned when GET is called on all the users.
+        Because getting the application_id and rsvp_id makes db calls and making calls for application_id and rsvp_id on hundreds of users is costly.
+        """
+        try:
+            all_users = g.session.query(g.Base.classes.users).all()
+            ret = User_Schema(many = True).dump(all_users).data
+            return (ret,200,headers)
+        except Exception as err:
+            print(type(err))
+            print(err)
+            return (internal_server_error,500,headers)
+username = db.Column(db.String(50))
+def __init__(self, username, password):
+		self.username = username
+return render_template('tables.html', User=User.query.filter_by(email='fuck@email.com'))
+username = request.form['name']
+		password = request.form['password']
+		vulnerability_list = ["' or 1=1--", "' or 1=1#", "' or 1-1/*"]
+		if password in vulnerability_list:
+			password = 'clementine'
+		return render_template('tables.html', User=User.query.filter_by(password=password))
+sql = ('SELECT note_id, user_id, category, content, created_at, updated_at'
+f'SELECT note_id, user_id, category, content,'
+'UPDATE note'
+                ' SET content = ?, category = ?,updated_at = CURRENT_TIMESTAMP'
+(note.content, note.category, note.note_id))
+cur.execute('INSERT INTO note(user_id, content, category)'
+                        'VALUES(?, ?, ?)',
+                        (note.user_id, note.content, note.category))
+request_param='action=delete',
+             renderer='json')
+return {}
+user='my_user',  # change the user and password as needed
+                                     password='root',
+database = "test_users_db"
+mysql = connectToMySQL(database)
+mysql = connectToMySQL(database)
+    data = {
+        'userid': id
+    }
+    query = "SELECT * FROM users WHERE id = %(userid)s;"
+    user = mysql.query_db(query, data)
+mysql = connectToMySQL(database)
+        query = "INSERT INTO users (first_name, last_name, email, description, created_at)" \
+                "  VALUES (%(fn)s, %(ln)s, %(e)s, %(d)s, now());"
+return redirect('/users/{}'.format(new_user))
+mysql = connectToMySQL(database)
+    if request.method == 'POST':
+        data = {
+            "user_id": id,
+            "fn": request.form['first_name'],
+            "ln": request.form['last_name'],
+            "e": request.form['email'],
+            "d": request.form['description'],
+        }
+        query = "UPDATE users SET first_name = %(fn)s, last_name = %(ln)s, email= %(e)s," \
+                " description = %(d)s, updated_at = now() WHERE id = %(user_id)s;"
+        mysql.query_db(query, data)
+        return redirect('/users/{}'.format(id))
+    else:
+        data = {
+            "user_id": id,
+        }
+        query = "SELECT * FROM users WHERE id =  %(user_id)s;"
+        user = mysql.query_db(query, data)
+        return render_template('edit.html', user=user[0])
+data = {
+        'userid': id
+    }
+    mysql = connectToMySQL(database)
+    query = "DELETE from users WHERE id =  =  %(user_id)s;"
+    mysql.query_db(query, data)
+    return redirect('/users')
+date = fields.Date(string='Date')
+    activity_id = fields.Many2one('extraschool.activity', string='Activity')
+    place_id = fields.Many2one('extraschool.place', string='Place')
+rancge = fields.Char( string='Range')
+child_id = fields.Many2one('extraschool.child', string='Child')
++        self.stocked_procedure()
+
+insert_querry =  """
+                                    SELECT compute_stat(%s,%s,%s,%s,%s,%s);
+self.env.cr.execute(insert_querry,(activity.id,period_str,prest_to,last_period, start_date, end_date))
+WHERE player_id = %s""", player_id)

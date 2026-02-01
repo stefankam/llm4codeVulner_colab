@@ -1,0 +1,582 @@
+=======================
+=
+.
+.
+)
+query
+line = line.strip()
+"
+cursor.execute(query)
+return
+db.get_full_sql(filter):
+(
+'name'
+(
+file.id =
+file.size = file.size
+file
+file
+BDHelper
+data
+cursor.execute(query)
+cursor.execute()
+=
+bot.db.get_nick_id(Identifier(trigger.group(0)))
+bot.db.get_nick_id(Identifier(trigger.group(0)))
+#@example('.karmatop 3') #@example('.karmatop 2')
+trigger.group(1): trigger.group(2): trigger.group(2): trigger.group(2): trigger.group(2):
+if
+)
+karmalist
+top =
+ifisstr:
+               %s='%s'" %f.upper(),
+                                                  request.GET.get(f))
+               ifisstr:
+               %s
+cursor.execute(sql_request)
+("""
+=
+)
+)
+% table_name
+SQL_INSERT_JSON
+data:
+)
+)
+return query.execute()
+:
+:
+response_data
+e
+=======================
+self.db.execute(insert_query
+
+
+       self.db.execute(insert_query
+
+
+       self.db.execute(insert_query
+
+
+       self.db.
+(rows_count)
+local_id
+:
+to upload
+return query.execute()
+:
+:
+response_data
+e
+=======================
+self.db.execute(insert_query
+
+
+       self.db.execute(insert_query
+
+
+       self.db.execute(insert_query
+
+
+       self.db.
+(rows_count)
+local_id
+:
+to upload
+return query.execute()
+:
+:
+response_data
+e
+=======================
+self.db.execute(insert_query
+
+
+       self.db.execute(insert_query
+
+
+       self.db.execute(insert_query
+
+
+       self.db.
+(rows_count)
+local_id
+:
+to upload
+get_subjects()
+cur.execute(query)
+cur
+cur=cur.cursor()
+.
+model:
+   model:
+Affix
+self.query,
+conn
+c = c.cursor()
+self.query.query.query.query.query.query.query.query.query.query.query.query.query.query.query.query.query.query.query.query.query.query.
+:
+import
+=obj=====================
+=query_itemsquery_items:
+
+
+       
+=
+self.read({'id' : obj_id})[0]
+
+
+    def(obj_id):
+        '''
+       = self.read({'id' :'id=' +
+thethethethethethethethethethethethethethethethethethethethethethethe
+self.query,
+conn
+c = c.cursor()
+self.query.query.query.query.query.query.query.query.query.query.query.query.query.query.query.query.query.query.query.query.query.query.
+:
+import
+=obj=====================
+=query_itemsquery_items:
+
+
+       
+=
+self.read({'id' : obj_id})[0]
+
+
+    def(obj_id):
+        '''
+       = self.read({'id' :'id=' +
+thethethethethethethethethethethethethethethethethethethethethethethe
+q
+"
+sql_command
+"
+sql_command
+.
+"
+update_typeupdate_type
+=======================
+price_mode
+)
+region_cur.execute("SELECT
+country_cur.execute("SELECT
+.
+regex.test(regex.source)
+field:
+field
+.
+:
+.
+.
+.
+.
+=
+.
+'_keywords'
+(field)
+field
+field =
+.
+regex.test(regex.source)
+field:
+field
+.
+:
+.
+.
+.
+.
+=
+.
+'_keywords'
+(field)
+field
+field =
+.
+regex.test(regex.source)
+field:
+field
+.
+:
+.
+.
+.
+.
+.
+regex.test(regex.source)
+field:
+field
+.
+:
+.
+.
+.
+.
+=
+.
+'_keywords'
+:
+.
+.
+.
+.
+=
+.
+'_keywords'
+(field)
+field
+field =
+=
+.
+'_keywords'
+(field)
+field
+field =
+)
+)
+)
+.
+'keystone-manage', cmd, 'keystone-manage-vulnerability')
+)
+)
+)
+.
+'keystone-manage', cmd, 'keystone-manage-vulnerability')
+params
+.
+lookup
+params
+params
+cur.execute(f)
+cur.execute(f)
+=
+{}
+=
+cur.execute(f"SELECT
+language_id
+update_sql
+update_cursor.execute(update_sql)
+update_cursor.close()
+=
+True
+)
+resp.body
+resp.body
+resp.body
+resp.body
+=
+)
+u_date,
+=
+)
+)
+=
+query_params =
+ def
+=
+)
+was_prev_closed
+was_prev_closed
+update_status_query
+)
+.
+.
+)
+)
+)
+df_dilfo_pre
+df_dilfo_post
+.
+.
+)
+)
+)
+df_dilfo_pre
+df_dilfo_post
+request.org_id_and_type_from_request()
+.
+:
+.
+.
+org_id, org_type
+.
+org_type
+:
+.
+= %(org_id)s
+org_type=org_type
+sql_update
+return
+return
+f"""
+{space_id}
+return
+return
+query += f""""""
+=
+c.email_id='{email_id}'""""""
+get_leave_balance_on, get_approved_leaves_for_period
+.
+.
+.
+"
+.
+.
+"Active"
+.
+opening
+.
+return
+c.email_id='{email_id}'""""""
+get_leave_balance_on, get_approved_leaves_for_period
+.
+.
+.
+"
+.
+.
+"Active"
+.
+opening
+.
+return
+c.email_id='{email_id}'""""""
+get_leave_balance_on, get_approved_leaves_for_period
+.
+.
+.
+"
+.
+.
+"Active"
+.
+opening
+.
+return
+get_leave_balance_on, get_approved_leaves_for_period
+.
+.
+.
+"
+.
+.
+"Active"
+.
+opening
+.
+get_leave_balance_on, get_approved_leaves_for_period
+.
+.
+.
+"
+.
+.
+"Active"
+.
+opening
+.
+return
+return
+cur.execute(sql)cur.close()cur.close()cur.close()cur.close()cur.close()cur.close()cur.close()cur.close()
+x)
+(field)
+field
+field =
+queryquery'query'query'''''''''''''''''
+:
+=
+cursor.execute(query)
+return
+"
+=
+=
+tag_num
+"
+=
+:
+%s
+cursor.execute(sql)
+tmp_suggest
+sql
+.
+cursor.execute(sql)
+users_tmp
+AS
+()())()()()( )
+%users_tmp
+cursor.execute(sql)
+followed_id
+ def
+%s
+cursor.execute(sql)
+""+ "'{0}'".format(hostname)}"
+answer = answer.fetchall()
+=
+)
+=
+answer
+. register_blueprint ( profile_module
+#
+file
+db_setLastVisit
+=
+.
+пользовательно
+должно
+пользовательной
+должно
+r
+пользователяпользовате�
+)
+)
+'%s'
+)
+))(
+
+import
+@messages_module.route('/message/send')
+def send_message()
+.
+@messages_module.route('/messages/<int:dialog_id>')
+dialog_id
+user_id
+
+data
+data
+% ID
+%s
+'''
+%s
+var
+%s
+% ID
+% ID
+%s
+)
+=
+@profile_module.route('/profiles')
+=======================
+:
+https://github.com/jira/jira/issues/1901
+https://github.com/jira/jira/issues/1901
+https://github.com/jira/jira/issues/1901
+https://github.com/jira/jira/issues/1901
+должнодолжнодолжно сос�
+answer
+messages_module
+data
+data =
+'password'
+query:
+err:
+'password'
+'name'
+в
+query
+order
+=
+=()
+cif()()()()()()()()()(
+)update_stmt
+cursor.execute(update_stmt, uid)
+print(sql)print(new_email
+               )print(new_email
+               )print(new_email
+               )print(new_email
+               )
+cursor.execute(sql)
+=
+(current_source
+           )
+%s"
+% sourcebyinstitution
+. execute ( query
+(current_institution
+           )
+(sourcebyinstitution,
+(sourcebyinstitution, titles)
+sourcebyinstitution
+               
+=
+cursor.execute(sql)
+=======================
+"-device:'mike'")
+#parser.parse(LuceneParser, "-device:'mike'")
+#parser.parse(LuceneParser,
+where
+.
+=
+.
+.
+%s
+.
+lookup
+.
+__all__ =
+=
+)
+:
+:
+import
+import ISpy
+f"""
+f"""
+import
+:
+class
+import
+.
+query_string
+import
+import ISpy
+:
+data
+cursor.execute(query)
+data[name]=data[name]
+form
+)
+query
+=
+=
+=
+.
+import
+ip_test()
+= fields.String(required=True)
+reset_password_token = fields.String()
+:
+auth_token = fields.String()
+==
+.
+self.get(self):
+post
+email = db.Column(db.String(50))
+password:
+.
+)
+'
+FROM {
+.
+note.note_id
+cur.execute('DELETE')
+.
+httpNoContent()
+=
+.
+mysql.connectToMySQL("users_db")
+=
+= mysqlquery(fn)s, %(e)s,(fn)s, %(e)s,(fn)s, %(e)s,(fn)s, %(ln)
+new_user = f'users/{new_user}'
+=======================
+"
+= fields.Many2one('extraschool.date',
+=
+child_id
+.
+insert into extraschool_presta_stat
+                                   (===============
+self.env.cr.execute(insert_querry,(activity.id,period_str,activity.id,prest_to,last_period,prest_to,last_period,last_
+("""

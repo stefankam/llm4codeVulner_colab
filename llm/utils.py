@@ -9,7 +9,7 @@ from pytorch_lightning.strategies import deepspeed
 import sys
 import os
 # Change the current working directory
-os.chdir('/content/llm4codeVulner_colab')
+os.chdir('./')
 # Add the path to sys.path if needed
 sys.path.append(os.getcwd())
 from evaluator.metrics_getter import get_code_bleu_from_list, get_code_bert_from_list
@@ -160,6 +160,14 @@ def print_metrics(references, predictions, lang):
 def get_prompt_prefix(vulnerability, lang):
     vulnerability = vulnerability.replace("_", " ")
     prompt_prefix = "Fix this {} code snippet with possible {} vulnerability: ".format(lang, vulnerability)
+    return prompt_prefix
+
+
+def get_git_diff_prompt_prefix(vulnerability, lang):
+    vulnerability = vulnerability.replace("_", " ")
+    prompt_prefix = (
+        "Fix this {} code snippet with possible {} vulnerability based on the Git diff: "
+    ).format(lang, vulnerability)
     return prompt_prefix
 
 

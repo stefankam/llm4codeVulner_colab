@@ -67,6 +67,39 @@ def read_prompts(filename):
     return prompts, labels
 
 
+
+def read_prompts_from_json(filename):
+    with open(filename) as file:
+        data_str = file.read()
+        data = json.loads(data_str)
+    prompts = []
+    labels = []
+    for commits_info in data.values():
+        for commit_info in commits_info.values():
+            for file_info in commit_info.get("files", {}).values():
+                for change in file_info.get("changes", []):
+                    prompt_start = change["diff"].find("\n-")
+                    while prompt_start != -1:
+                        prompt_end = change["diff"].find("\n+", prompt_start)
+                        label_end = change["diff"].find("\n-", prompt_end)
+
+                        if label_end == -1 or (
+                                change["diff"].find("\n ", prompt_end) < label_end):
+                            label_end = change["diff"].find("\n ", prompt_end)
+
+                        prompt = change["diff"][prompt_start + len("\n-"):prompt_end].strip().replace("\n-",
+                                                                                                      "\n")
+                        label = change["diff"][prompt_end + len("\n+"):label_end].strip().replace("\n+",
+                                                                                                  "\n")
+
+                        prompts.append(prompt)
+                        labels.append(label)
+
+                        prompt_start = change["diff"].find("\n-", label_end)
+    return prompts, labels
+
+
+
 def process_source_code(code):
     return code.replace("{{/*", "'''").replace("*/}}", "'''")
 
@@ -86,6 +119,7 @@ def download_vulnerable_files(patch_records, output_path, github_client):
 
 def download_vulnerable_file(patch_record, github_client, output_path, commit_filter=None, write_commits=True,
                              commit_truncated_number=5):
+    from github import UnknownObjectException
     code_path = output_path + "/code/"
     if not os.path.exists(code_path):
         os.makedirs(os.path.join(code_path))
@@ -127,5 +161,6 @@ def download_vulnerable_file(patch_record, github_client, output_path, commit_fi
 
 
 def get_github_client(token):
+    from github import Auth, Github
     auth = Auth.Token(token)
     return Github(auth=auth)

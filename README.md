@@ -85,6 +85,63 @@ Our fined model achieves the following performance on :
 | Codegemma (benchmark)|     0.256       |    0.7173      |         0.7840       |      0.7912       |
 
 
+
+### Repair dataset counts (computed from repository data)
+
+Counts below were generated via `python scripts/calc_table_counts.py`.
+
+| Method | Source | Repos | Commits | Files | Prompt/label pairs | LSTM example files | LSTM vulnerability types |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| LLM-only repair (LLM-only detection + repair; no Git-Diff prompting) | data/sql_injection.json | 336 | 406 | 667 | 2609 | - | - |
+| Git-Diff prompting repair (LLM repair using Git-Diff prompts) | data/sql_injection.json | 336 | 406 | 667 | 2609 | - | - |
+| LLM repair for LSTM-detected vulnerabilities (LSTM detection + LLM repair) | lstm_examples/*.py | - | - | - | - | 21 | command_injection (3), open_redirect (3), path_disclosure (3), remote_code_execution (3), sql (3), xsrf (3), xss (3) |
+
+### Repair evaluation metrics (CodeBLEU / CodeBERT / Exact Match / Bandit)
+
+Use the script below to compute metrics per repair method once you have the reference and prediction files for that run:
+
+```metrics
+python scripts/compute_metrics.py \
+  --references path/to/references.txt \
+  --predictions path/to/predictions.txt \
+  --lang python \
+  --bandit-path path/to/fixed/code
+```
+
+The script reports CodeBLEU, CodeBERT, exact match, and Bandit findings (if Bandit is installed).
+
+| Method | CodeBLEU | CodeBERT Precision | CodeBERT Recall | CodeBERT F1 | Exact Match |
+| --- | --- | --- | --- | --- | --- |
+| LLM-only repair | TBD (requires references/predictions) | TBD | TBD | TBD | TBD |
+| Git-Diff prompting repair | TBD (requires references/predictions) | TBD | TBD | TBD | TBD |
+| LLM repair for LSTM-detected vulnerabilities | TBD (requires references/predictions) | TBD | TBD | TBD | TBD |
+
+To generate per-method `references.txt` / `predictions.txt` outputs:
+
+```llm-only
+python llm/evaluation.py -v sql_injection -l python -t t5 -m Salesforce/codet5-small \
+  --prompt_style llm_only --output_dir outputs/llm_only
+```
+
+```git-diff
+python llm/evaluation.py -v sql_injection -l python -t t5 -m Salesforce/codet5-small \
+  --prompt_style git_diff --output_dir outputs/git_diff
+```
+
+```lstm-detection
+python lstm/export_detections.py \
+  --examples-dir lstm_examples \
+  --labels-dir data/lstm_labels \
+  --output-dir data/lstm_detections
+python llm/inference_from_prompts.py \
+  --prompts data/lstm_detections/prompts.txt \
+  --references data/lstm_detections/references.txt \
+  --output-dir outputs/lstm_llm
+```
+
+Provide `data/lstm_labels` with fixed-code counterparts (matched by filename) to enable metric computation.
+
+
 ## Contributing
 
 This Repo presents a comprehensive approach to enhancing code security through the integration of LSTM to detect/LLM to repair vulnerabilities in python
